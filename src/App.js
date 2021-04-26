@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, {useState} from 'react'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Form from './components/Form'
+import FormResults from './components/FormResults'
 import './App.css';
 
 function App() {
+
+  const [firstName,setFirstName] = useState("")
+  const [lastName,setLastName] = useState("")
+  const [password,setPassword] = useState("")
+  const [email, setEmail] = useState("")
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Form setFirstName={setFirstName} setLastName={setLastName} setEmail={setEmail} setPassword={setPassword}/>
+      <FormResults firstName={firstName} lastName={lastName} email={email} password={password}/>
+      <Footer/>
     </div>
   );
 }
